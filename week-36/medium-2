@@ -1,0 +1,28 @@
+# Medium 1
+#   Problem Statement: Given the following string, input_string, 
+#   write a Python function that takes a string 
+#   and removes all stop words (e.g. "the", "a", "an") from it.
+#   input_string = "The quick brown fox jumps over the lazy dog"
+
+
+import nltk
+from nltk.corpus import stopwords
+# nltk.download("stopwords")
+
+## This function is actually used in case 
+# sw = set(stopwords.words("english"))
+# print(sw)
+sw = ["a", "an", "the"]
+
+def removeStopWords(string):
+    wordList = string.lower().split(" ")
+    print(wordList)
+    result = [word for word in wordList if word not in sw]
+
+    return " ".join(result)
+
+
+if __name__ == "__main__":
+    string = "The quick brown fox jumps over the lazy dog"
+    result = removeStopWords(string)
+    print(result)
